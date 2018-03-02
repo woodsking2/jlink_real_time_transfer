@@ -23,9 +23,19 @@ class Jlink_real_time_transfer : public mbed::Stream, private mbed::NonCopyable<
         m_name.append(name);
     }
     ~Jlink_real_time_transfer() = default;
+
+    /**
+     * @brief need to call fflush or fclose to printf
+     * 
+     */
     void redirect_std()
     {
         freopen(m_name.c_str(), "w", stdout);
+    }
+
+    void flush_std()
+    {
+        fflush(stdout);
     }
 
   protected:
