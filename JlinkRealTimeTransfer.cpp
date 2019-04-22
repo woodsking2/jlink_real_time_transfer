@@ -31,3 +31,7 @@ void JLinkRealTimeTransfer::unlock()
 {
     _mutex.unlock();
 }
+// FileHandle *mbed::mbed_override_console(int fd)
+// {
+//     return &JLinkRealTimeTransferInstance;
+// }
