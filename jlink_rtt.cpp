@@ -1,33 +1,33 @@
-#include "JLinkRealTimeTransfer.h"
+#include "jlink_rtt.h"
 #include "RTT/SEGGER_RTT.h"
 
-JLinkRealTimeTransfer::JLinkRealTimeTransfer(const char *name) : Stream(name), _name("/")
+Jlink_rtt::Jlink_rtt(const char *name) : Stream(name), _name("/")
 {
     SEGGER_RTT_Init();
     _name.append(name);
 }
-// void JLinkRealTimeTransfer::redirect_std()
+// void Jlink_rtt::redirect_std()
 // {
 //     auto outFile = freopen(_name.c_str(), "w", stdout);
 // }
-// void JLinkRealTimeTransfer::flush_std()
+// void Jlink_rtt::flush_std()
 // {
 //     fflush(stdout);
 // }
-int JLinkRealTimeTransfer::_getc()
+int Jlink_rtt::_getc()
 {
     return -1;
 }
-int JLinkRealTimeTransfer::_putc(int c)
+int Jlink_rtt::_putc(int c)
 {
     SEGGER_RTT_PutChar(0, c);
     return c;
 }
-void JLinkRealTimeTransfer::lock()
+void Jlink_rtt::lock()
 {
     _mutex.lock();
 }
-void JLinkRealTimeTransfer::unlock()
+void Jlink_rtt::unlock()
 {
     _mutex.unlock();
 }
