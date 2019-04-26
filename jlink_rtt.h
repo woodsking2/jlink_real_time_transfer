@@ -21,10 +21,10 @@ class Jlink_rtt : public mbed::Stream, private mbed::NonCopyable<Jlink_rtt>
     // void redirect_std();
     // void flush_std();
   protected:
-    virtual int _getc();
-    virtual int _putc(int c);
-    virtual void lock();
-    virtual void unlock();
+    int _getc() override;
+    int _putc(int c) override;
+    void lock() override;
+    void unlock() override;
     PlatformMutex _mutex;
   private:
     std::string _name;
