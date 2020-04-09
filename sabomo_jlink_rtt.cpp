@@ -19,10 +19,10 @@ int Jlink_rtt::_putc(int c)
 }
 void Jlink_rtt::lock()
 {
-    _mutex.lock();
+    Thread_safe::lock();
 }
 void Jlink_rtt::unlock()
 {
-    _mutex.unlock();
+    Thread_safe::unlock();
 }
 } // namespace sabomo
