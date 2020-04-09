@@ -1,8 +1,15 @@
 #pragma once
-#ifndef __JLINK_RTT_H__
-#define __JLINK_RTT_H__
-#include "platform/platform.h"
-#include "Stream.h"
+/**
+ * @file sabomo_jlink_rtt.h
+ * @author James Wang (woodsking2@hotmail.com)
+ * @brief 使用rtt 作为stream 输出输入
+ * @version 0.1
+ * @date 2020-04-09
+ *
+ * @copyright Copyright (c) 2020
+ *
+ */
+#include "mbed.h"
 #include "sabomo_non_copyable.h"
 #include "sabomo_thread_safe.h"
 namespace sabomo
@@ -26,4 +33,3 @@ class Jlink_rtt : public mbed::Stream, private Non_copyable<Jlink_rtt>, impl::Th
     PlatformMutex _mutex;
 };
 } // namespace sabomo
-#endif //!< #ifndef __JLINK_RTT_H__
